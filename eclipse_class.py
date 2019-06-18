@@ -6,7 +6,7 @@ class PiCameraStream:
     """
     A class to streaming frames with the PiCamera object
     """
-    def __init__(self, resolution=(1648, 928), framerate=40, ss=1, ISO=100, bright=45):
+    def __init__(self, resolution=(1648, 928), framerate=40, ss=1, ISO=100, bright=40):
         """
         Initialize the camera object with our optimal parameters
         """
@@ -19,8 +19,8 @@ class PiCameraStream:
 	self.camera.brightness = bright
 	self.rawCapture = PiRGBArray(self.camera, size=resolution)
 	self.stream = self.camera.capture_continuous(self.rawCapture, format="bgr", use_video_port=True)
-    
-    
+
+
     def stop(self):
         """
         Close the camera in a properly way
