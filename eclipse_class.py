@@ -17,7 +17,13 @@ class PiCameraStream:
 	self.camera.iso = ISO
 	self.camera.awb_mode = 'sunlight'
 	self.camera.brightness = bright
-	self.rawCapture = PiRGBArray(self.camera, size=resolution)
+	
+	
+    def start(self):
+        """
+        Start image stream 
+        """
+	self.rawCapture = PiRGBArray(self.camera, size=self.camera.resolution)
 	self.stream = self.camera.capture_continuous(self.rawCapture, format="bgr", use_video_port=True)
 
 

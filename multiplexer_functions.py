@@ -106,7 +106,25 @@ def select_camera(bus, f1Pin, f2Pin, ePin, cam_number):
     return 0
 
 
-def force_camera_change(bus, f1Pin, f2Pin, ePin, camera_number, error_data_file):
+def force_camera_change(bus, f1Pin, f2Pin, ePin, camera_number):
+    """
+    Change to the next available camera using the multiplexer. If there is an I/O Exception, it tries again.
+    --------------------------
+    Input : Bus, 3 used pins, number of camera to change, file to write the possible generated exception
+    Output: 0 is done
+    """
+    try:
+        select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
+        time.sleep(0.1)
+    except Exception as e:
+        try:
+            select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
+        except Exception as e:
+            pass
+    return 0
+
+
+def force_camera_change_save_exception(bus, f1Pin, f2Pin, ePin, camera_number, error_data_file):
     """
     Change to the next available camera using the multiplexer. If there is an I/O Exception, it tries again.
     --------------------------
