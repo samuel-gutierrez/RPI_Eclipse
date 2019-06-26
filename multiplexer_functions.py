@@ -114,11 +114,14 @@ def force_camera_change(bus, f1Pin, f2Pin, ePin, camera_number):
     Output: 0 is done
     """
     try:
+        time.sleep(0.1)
         select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
         time.sleep(0.1)
     except Exception as e:
         try:
+            time.sleep(0.1)
             select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
+            time.sleep(0.1)
         except Exception as e:
             pass
     return 0
@@ -133,7 +136,7 @@ def force_camera_change_save_exception(bus, f1Pin, f2Pin, ePin, camera_number, e
     """
     try:
         select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
-        time.sleep(0.1)
+        time.sleep(0.2)
     except Exception as e:
         try:
             select_camera(bus, f1Pin, f2Pin, ePin, camera_number)
