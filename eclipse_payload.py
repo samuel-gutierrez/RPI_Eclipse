@@ -12,7 +12,7 @@ class EclipsePayload:
     """
     Class for the 4 RPI-camera payload in the Eclipse sounding balloon. 
     """
-    def __init__(self, f1Pin=33, f2Pin=31, ePin=15):
+    def __init__(self, f1Pin=35, f2Pin=33, ePin=15):
         """
         Set the required pins and initialize multiplexer. 
         """
@@ -26,7 +26,7 @@ class EclipsePayload:
         self.test_last_pic = ''
 
 
-    def reset_defaults_parameters(self, f1Pin=33, f2Pin=31, ePin=15):
+    def reset_defaults_parameters(self, f1Pin=35, f2Pin=33, ePin=15):
         """
         If there is an exception, this function reset the defaults parameters.
         """

@@ -3,7 +3,7 @@ import smbus
 import multiplexer_functions
 
 # Define GPIO pins
-f1Pin, f2Pin, ePin = [33, 31, 15]
+f1Pin, f2Pin, ePin = [35, 33, 15]
 
 # Set multiplexer
 bus = smbus.SMBus(1)
